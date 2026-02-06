@@ -45,10 +45,13 @@ public class PlayerMove : MonoBehaviour
         inputActions.Player.Disable();
     }
 
-    void FixedUpdate()
+    private void Update()
     {
         Gravity();
         Move();
+    }
+    void FixedUpdate()
+    {
         RotateToCursor();
     }
 
@@ -88,13 +91,13 @@ public class PlayerMove : MonoBehaviour
     {
         if (controller.isGrounded && verticalVelocity < 0)
         {
-            Debug.Log("isGrounded");
+            //Debug.Log("isGrounded");
             verticalVelocity += groundedGravity;
             //coyoteTimeCounter = coyoteTime;
         }
         else
         {
-            Debug.Log("is not Grounded");
+            //Debug.Log("is not Grounded");
             //float multiplier = verticalVelocity > 0 ? 2.0f : 1.0f;
             verticalVelocity += gravity;
             //coyoteTimeCounter -= Time.deltaTime;

@@ -19,7 +19,7 @@ public class CursorController : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         
         ApplyCursorData(); //CursorData에 있는 스프라이트를 컴포넌트에 전달 및 적용
-        Cursor.visible = true;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined; //커서를 화면 밖으로 나가는 것을 제한 
     }
 
