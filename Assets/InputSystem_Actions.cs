@@ -120,7 +120,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SelectSkill1"",
+                    ""name"": ""SelectMagic1"",
                     ""type"": ""Button"",
                     ""id"": ""c6bee289-61bd-4e72-9d66-8645756520d2"",
                     ""expectedControlType"": """",
@@ -129,7 +129,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SelectSkill2"",
+                    ""name"": ""SelectMagic2"",
                     ""type"": ""Button"",
                     ""id"": ""e22c66fb-73a3-4e0d-9000-ff6b6321f75f"",
                     ""expectedControlType"": """",
@@ -138,7 +138,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SelectSkill3"",
+                    ""name"": ""SelectMagic3"",
                     ""type"": ""Button"",
                     ""id"": ""1457b4f2-f37a-4333-9bbd-89b55cf3ff59"",
                     ""expectedControlType"": """",
@@ -147,7 +147,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SelectSkill4"",
+                    ""name"": ""SelectMagic4"",
                     ""type"": ""Button"",
                     ""id"": ""707a00dc-7b53-4a01-b581-d926b4d60d04"",
                     ""expectedControlType"": """",
@@ -195,6 +195,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""a812046e-1d18-4b12-8bf3-166d402d1081"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TargetInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""50ae1849-4d5b-4cc3-a307-1a10ce6caa0c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -407,7 +416,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""SelectSkill1"",
+                    ""action"": ""SelectMagic1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -418,7 +427,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""SelectSkill2"",
+                    ""action"": ""SelectMagic2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -429,7 +438,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""SelectSkill3"",
+                    ""action"": ""SelectMagic3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -440,7 +449,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""SelectSkill4"",
+                    ""action"": ""SelectMagic4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -491,11 +500,22 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c4b139c8-a315-4879-b0e2-4f2343466a77"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbec9b60-0e19-425b-9fb2-e822c25ea50d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TargetInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1086,15 +1106,16 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_SelectSkill1 = m_Player.FindAction("SelectSkill1", throwIfNotFound: true);
-        m_Player_SelectSkill2 = m_Player.FindAction("SelectSkill2", throwIfNotFound: true);
-        m_Player_SelectSkill3 = m_Player.FindAction("SelectSkill3", throwIfNotFound: true);
-        m_Player_SelectSkill4 = m_Player.FindAction("SelectSkill4", throwIfNotFound: true);
+        m_Player_SelectMagic1 = m_Player.FindAction("SelectMagic1", throwIfNotFound: true);
+        m_Player_SelectMagic2 = m_Player.FindAction("SelectMagic2", throwIfNotFound: true);
+        m_Player_SelectMagic3 = m_Player.FindAction("SelectMagic3", throwIfNotFound: true);
+        m_Player_SelectMagic4 = m_Player.FindAction("SelectMagic4", throwIfNotFound: true);
         m_Player_CastQ = m_Player.FindAction("CastQ", throwIfNotFound: true);
         m_Player_CastE = m_Player.FindAction("CastE", throwIfNotFound: true);
         m_Player_CastR = m_Player.FindAction("CastR", throwIfNotFound: true);
         m_Player_CastShift = m_Player.FindAction("CastShift", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_TargetInteraction = m_Player.FindAction("TargetInteraction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1191,15 +1212,16 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_SelectSkill1;
-    private readonly InputAction m_Player_SelectSkill2;
-    private readonly InputAction m_Player_SelectSkill3;
-    private readonly InputAction m_Player_SelectSkill4;
+    private readonly InputAction m_Player_SelectMagic1;
+    private readonly InputAction m_Player_SelectMagic2;
+    private readonly InputAction m_Player_SelectMagic3;
+    private readonly InputAction m_Player_SelectMagic4;
     private readonly InputAction m_Player_CastQ;
     private readonly InputAction m_Player_CastE;
     private readonly InputAction m_Player_CastR;
     private readonly InputAction m_Player_CastShift;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_TargetInteraction;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1224,21 +1246,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         /// <summary>
-        /// Provides access to the underlying input action "Player/SelectSkill1".
+        /// Provides access to the underlying input action "Player/SelectMagic1".
         /// </summary>
-        public InputAction @SelectSkill1 => m_Wrapper.m_Player_SelectSkill1;
+        public InputAction @SelectMagic1 => m_Wrapper.m_Player_SelectMagic1;
         /// <summary>
-        /// Provides access to the underlying input action "Player/SelectSkill2".
+        /// Provides access to the underlying input action "Player/SelectMagic2".
         /// </summary>
-        public InputAction @SelectSkill2 => m_Wrapper.m_Player_SelectSkill2;
+        public InputAction @SelectMagic2 => m_Wrapper.m_Player_SelectMagic2;
         /// <summary>
-        /// Provides access to the underlying input action "Player/SelectSkill3".
+        /// Provides access to the underlying input action "Player/SelectMagic3".
         /// </summary>
-        public InputAction @SelectSkill3 => m_Wrapper.m_Player_SelectSkill3;
+        public InputAction @SelectMagic3 => m_Wrapper.m_Player_SelectMagic3;
         /// <summary>
-        /// Provides access to the underlying input action "Player/SelectSkill4".
+        /// Provides access to the underlying input action "Player/SelectMagic4".
         /// </summary>
-        public InputAction @SelectSkill4 => m_Wrapper.m_Player_SelectSkill4;
+        public InputAction @SelectMagic4 => m_Wrapper.m_Player_SelectMagic4;
         /// <summary>
         /// Provides access to the underlying input action "Player/CastQ".
         /// </summary>
@@ -1259,6 +1281,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Attack".
         /// </summary>
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TargetInteraction".
+        /// </summary>
+        public InputAction @TargetInteraction => m_Wrapper.m_Player_TargetInteraction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1294,18 +1320,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
-            @SelectSkill1.started += instance.OnSelectSkill1;
-            @SelectSkill1.performed += instance.OnSelectSkill1;
-            @SelectSkill1.canceled += instance.OnSelectSkill1;
-            @SelectSkill2.started += instance.OnSelectSkill2;
-            @SelectSkill2.performed += instance.OnSelectSkill2;
-            @SelectSkill2.canceled += instance.OnSelectSkill2;
-            @SelectSkill3.started += instance.OnSelectSkill3;
-            @SelectSkill3.performed += instance.OnSelectSkill3;
-            @SelectSkill3.canceled += instance.OnSelectSkill3;
-            @SelectSkill4.started += instance.OnSelectSkill4;
-            @SelectSkill4.performed += instance.OnSelectSkill4;
-            @SelectSkill4.canceled += instance.OnSelectSkill4;
+            @SelectMagic1.started += instance.OnSelectMagic1;
+            @SelectMagic1.performed += instance.OnSelectMagic1;
+            @SelectMagic1.canceled += instance.OnSelectMagic1;
+            @SelectMagic2.started += instance.OnSelectMagic2;
+            @SelectMagic2.performed += instance.OnSelectMagic2;
+            @SelectMagic2.canceled += instance.OnSelectMagic2;
+            @SelectMagic3.started += instance.OnSelectMagic3;
+            @SelectMagic3.performed += instance.OnSelectMagic3;
+            @SelectMagic3.canceled += instance.OnSelectMagic3;
+            @SelectMagic4.started += instance.OnSelectMagic4;
+            @SelectMagic4.performed += instance.OnSelectMagic4;
+            @SelectMagic4.canceled += instance.OnSelectMagic4;
             @CastQ.started += instance.OnCastQ;
             @CastQ.performed += instance.OnCastQ;
             @CastQ.canceled += instance.OnCastQ;
@@ -1321,6 +1347,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @TargetInteraction.started += instance.OnTargetInteraction;
+            @TargetInteraction.performed += instance.OnTargetInteraction;
+            @TargetInteraction.canceled += instance.OnTargetInteraction;
         }
 
         /// <summary>
@@ -1341,18 +1370,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
-            @SelectSkill1.started -= instance.OnSelectSkill1;
-            @SelectSkill1.performed -= instance.OnSelectSkill1;
-            @SelectSkill1.canceled -= instance.OnSelectSkill1;
-            @SelectSkill2.started -= instance.OnSelectSkill2;
-            @SelectSkill2.performed -= instance.OnSelectSkill2;
-            @SelectSkill2.canceled -= instance.OnSelectSkill2;
-            @SelectSkill3.started -= instance.OnSelectSkill3;
-            @SelectSkill3.performed -= instance.OnSelectSkill3;
-            @SelectSkill3.canceled -= instance.OnSelectSkill3;
-            @SelectSkill4.started -= instance.OnSelectSkill4;
-            @SelectSkill4.performed -= instance.OnSelectSkill4;
-            @SelectSkill4.canceled -= instance.OnSelectSkill4;
+            @SelectMagic1.started -= instance.OnSelectMagic1;
+            @SelectMagic1.performed -= instance.OnSelectMagic1;
+            @SelectMagic1.canceled -= instance.OnSelectMagic1;
+            @SelectMagic2.started -= instance.OnSelectMagic2;
+            @SelectMagic2.performed -= instance.OnSelectMagic2;
+            @SelectMagic2.canceled -= instance.OnSelectMagic2;
+            @SelectMagic3.started -= instance.OnSelectMagic3;
+            @SelectMagic3.performed -= instance.OnSelectMagic3;
+            @SelectMagic3.canceled -= instance.OnSelectMagic3;
+            @SelectMagic4.started -= instance.OnSelectMagic4;
+            @SelectMagic4.performed -= instance.OnSelectMagic4;
+            @SelectMagic4.canceled -= instance.OnSelectMagic4;
             @CastQ.started -= instance.OnCastQ;
             @CastQ.performed -= instance.OnCastQ;
             @CastQ.canceled -= instance.OnCastQ;
@@ -1368,6 +1397,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @TargetInteraction.started -= instance.OnTargetInteraction;
+            @TargetInteraction.performed -= instance.OnTargetInteraction;
+            @TargetInteraction.canceled -= instance.OnTargetInteraction;
         }
 
         /// <summary>
@@ -1690,33 +1722,33 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDash(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SelectSkill1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SelectMagic1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSelectSkill1(InputAction.CallbackContext context);
+        void OnSelectMagic1(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SelectSkill2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SelectMagic2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSelectSkill2(InputAction.CallbackContext context);
+        void OnSelectMagic2(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SelectSkill3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SelectMagic3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSelectSkill3(InputAction.CallbackContext context);
+        void OnSelectMagic3(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SelectSkill4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SelectMagic4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSelectSkill4(InputAction.CallbackContext context);
+        void OnSelectMagic4(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "CastQ" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1752,6 +1784,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TargetInteraction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTargetInteraction(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

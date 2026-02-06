@@ -4,8 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - skillIcon: {instanceID: 0}
-  - projectilePrefab: {fileID: 4512407657381916976, guid: dbb96d672788cff4da7622c9fe1414dc, type: 3}
+  - magicIcon: {instanceID: 0}
+  - callMagic: {instanceID: 0}
+  - MagicPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
