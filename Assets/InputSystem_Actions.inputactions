@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SelectSkill1",
+                    "name": "SelectMagic1",
                     "type": "Button",
                     "id": "c6bee289-61bd-4e72-9d66-8645756520d2",
                     "expectedControlType": "",
@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SelectSkill2",
+                    "name": "SelectMagic2",
                     "type": "Button",
                     "id": "e22c66fb-73a3-4e0d-9000-ff6b6321f75f",
                     "expectedControlType": "",
@@ -52,7 +52,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SelectSkill3",
+                    "name": "SelectMagic3",
                     "type": "Button",
                     "id": "1457b4f2-f37a-4333-9bbd-89b55cf3ff59",
                     "expectedControlType": "",
@@ -61,7 +61,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SelectSkill4",
+                    "name": "SelectMagic4",
                     "type": "Button",
                     "id": "707a00dc-7b53-4a01-b581-d926b4d60d04",
                     "expectedControlType": "",
@@ -109,6 +109,15 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "a812046e-1d18-4b12-8bf3-166d402d1081",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TargetInteraction",
+                    "type": "Button",
+                    "id": "50ae1849-4d5b-4cc3-a307-1a10ce6caa0c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -321,7 +330,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "SelectSkill1",
+                    "action": "SelectMagic1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -332,7 +341,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "SelectSkill2",
+                    "action": "SelectMagic2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -343,7 +352,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "SelectSkill3",
+                    "action": "SelectMagic3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -354,7 +363,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "SelectSkill4",
+                    "action": "SelectMagic4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -405,11 +414,22 @@
                 {
                     "name": "",
                     "id": "c4b139c8-a315-4879-b0e2-4f2343466a77",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fbec9b60-0e19-425b-9fb2-e822c25ea50d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TargetInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

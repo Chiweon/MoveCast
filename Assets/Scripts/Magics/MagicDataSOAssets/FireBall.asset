@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab15697a37d97ef4b99035be9864d351, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  skillName: FireBall
-  skillIcon: {fileID: 0}
-  projectilePrefab: {fileID: 4512407657381916976, guid: dbb96d672788cff4da7622c9fe1414dc, type: 3}
-  fireRate: 0.5
+  magicName: 
+  magicIcon: {fileID: 0}
   castPattern: 00000000010000000300000002000000
+  castLimitTime: 5
+  magicDamage: 0
+  fireRate: 0.5
+  callMagic: {fileID: 11400000, guid: 62099fd875eea434b9af47f6a88d80b3, type: 2}
+  MagicPrefab: {fileID: 4512407657381916976, guid: dbb96d672788cff4da7622c9fe1414dc, type: 3}

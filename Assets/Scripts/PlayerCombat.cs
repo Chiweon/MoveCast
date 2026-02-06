@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Skill Slots")]
-    [SerializeField] private SkillData[] skillSlots = new SkillData[4];
+    [Header("Magic Slots")]
+    [SerializeField] private MagicData[] magicSlots = new MagicData[4];
 
     private List<CastKey> currentInputs = new List<CastKey>();
 
-    private SkillData selectedSkill;
+    private MagicData selectedMagic;
     private CursorController cursorController;
     private InputSystem_Actions inputActions;
     
     private bool isCasting = false;
     private bool isReadyToFire = false;
-    private Coroutine skillProcessCoroutine;
+    private Coroutine magicProcessCoroutine;
 
     private void Awake()
     {
@@ -24,10 +24,10 @@ public class PlayerCombat : MonoBehaviour
         inputActions = new InputSystem_Actions();
 
         // 스킬 선택 연결
-        inputActions.Player.SelectSkill1.performed += ctx => SelectSkill(0);
-        inputActions.Player.SelectSkill2.performed += ctx => SelectSkill(1);
-        inputActions.Player.SelectSkill3.performed += ctx => SelectSkill(2);
-        inputActions.Player.SelectSkill4.performed += ctx => SelectSkill(3);
+        inputActions.Player.SelectMagic1.performed += ctx => SelectMagic(0);
+        inputActions.Player.SelectMagic2.performed += ctx => SelectMagic(1);
+        inputActions.Player.SelectMagic3.performed += ctx => SelectMagic(2);
+        inputActions.Player.SelectMagic4.performed += ctx => SelectMagic(3);
 
         // 캐스트 키 입력 연결
         inputActions.Player.CastQ.performed += ctx => OnCastKeyPressed(CastKey.Q);
@@ -39,18 +39,22 @@ public class PlayerCombat : MonoBehaviour
         inputActions.Player.Attack.performed += ctx => OnFire();
     }
 
-    private void SelectSkill(int index)
+    private void SelectMagic(int index)
     {
-        if (index < skillSlots.Length && skillSlots[index] == null) return;
+        if (index < magicSlots.Length && magicSlots[index] == null)
+        {
+            Debug.Log("index value may be more than magicSlots index or magicSlots is empty");
+            return;
+        }
 
-        if (isCasting || skillProcessCoroutine != null)
+        if (isCasting || magicProcessCoroutine != null)
         {
             ResetCombatState();
         }
 
-        selectedSkill = skillSlots[index];
-        skillProcessCoroutine = StartCoroutine(SkillRoutine());
-        Debug.Log($"<Color=cyan>[System]</color> {selectedSkill.skillName} selected!");
+        selectedMagic = magicSlots[index];
+        magicProcessCoroutine = StartCoroutine(MagicRoutine());
+        Debug.Log($"<Color=cyan>[System]</color> {selectedMagic.magicName} selected!");
     }
 
     private void OnCastKeyPressed(CastKey key)
@@ -62,7 +66,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private IEnumerator SkillRoutine()
+    private IEnumerator MagicRoutine()
     {
         isCasting = true;
         isReadyToFire = false;
@@ -70,10 +74,10 @@ public class PlayerCombat : MonoBehaviour
 
         int nextCorrectIndex = 0;
         float timeoutTimer = 0;
-        float limitTime = selectedSkill.castLimitTime;
-        Debug.Log($"<color=yellow>[Casting]</color> {selectedSkill.skillName} (제한 시간: {limitTime}초)");
+        float limitTime = selectedMagic.castLimitTime;
+        Debug.Log($"<color=yellow>[Casting]</color> {selectedMagic.magicName} (제한 시간: {limitTime}초)");
 
-        while (nextCorrectIndex < selectedSkill.castPattern.Count)
+        while (nextCorrectIndex < selectedMagic.castPattern.Count)
         {
             timeoutTimer += Time.deltaTime;
 
@@ -86,10 +90,10 @@ public class PlayerCombat : MonoBehaviour
 
             if (currentInputs.Count > nextCorrectIndex)
             {
-                if (currentInputs[nextCorrectIndex] == selectedSkill.castPattern[nextCorrectIndex])
+                if (currentInputs[nextCorrectIndex] == selectedMagic.castPattern[nextCorrectIndex])
                 {
                     nextCorrectIndex++;
-                    Debug.Log($"Match! ({nextCorrectIndex}/{selectedSkill.castPattern.Count})");
+                    Debug.Log($"Match! ({nextCorrectIndex}/{selectedMagic.castPattern.Count})");
                 }
                 else
                 {
@@ -112,23 +116,29 @@ public class PlayerCombat : MonoBehaviour
     {
         if (isReadyToFire)
         {
-            Debug.Log($"<color=orange>SUCCESS!</color> {selectedSkill.skillName} 발사!");
+            if(selectedMagic != null && selectedMagic.callMagic != null) {
+                selectedMagic.callMagic.Execute(gameObject, selectedMagic);
+            }
+            else { Debug.Log("selectedMagic or callMagic is null"); }
+
+                Debug.Log($"<color=orange>SUCCESS!</color> {selectedMagic.magicName} 발사!");
             ResetCombatState();
+            
         }
     }
 
     private void ResetCombatState()
     {
-        if (skillProcessCoroutine != null)
+        if (magicProcessCoroutine != null)
         {
-            StopCoroutine(skillProcessCoroutine);
-            skillProcessCoroutine = null;
+            StopCoroutine(magicProcessCoroutine);
+            magicProcessCoroutine = null;
         }
 
         isCasting = false;
         isReadyToFire = false;
         currentInputs.Clear();
-        //selectedSkill = null; // 필요에 따라 유지하거나 비울 수 있음
+        //selectedMagic = null; // 필요에 따라 유지하거나 비울 수 있음
     }
 
     private void OnEnable() => inputActions.Enable();
